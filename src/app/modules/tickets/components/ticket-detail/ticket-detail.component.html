@@ -1,0 +1,9 @@
+<div *ngIf="ticket" class="ticket-detail">
+    <h2>{{ ticket?.titulo }}</h2>
+    <p>{{ ticket?.descripcion }}</p>
+    <p><strong>Prioridad:</strong> {{ ticket?.prioridad }}</p>
+    <p><strong>Estado:</strong> {{ ticket?.estado }}</p>
+    <p><strong>Creado:</strong> {{ ticket?.fechaCreacion | date:'short' }}</p>
+    <button mat-raised-button color="accent" (click)="editTicket()">Editar</button>
+  </div>
+  

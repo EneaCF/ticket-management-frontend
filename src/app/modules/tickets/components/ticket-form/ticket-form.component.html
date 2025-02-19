@@ -1,0 +1,26 @@
+<form [formGroup]="ticketForm" (ngSubmit)="onSubmit()" class="ticket-form">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Título</mat-label>
+      <input matInput formControlName="titulo" required>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Descripción</mat-label>
+      <textarea matInput formControlName="descripcion" required></textarea>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Prioridad</mat-label>
+      <mat-select formControlName="prioridad">
+        <mat-option [value]="0">Baja</mat-option>
+        <mat-option [value]="1">Media</mat-option>
+        <mat-option [value]="2">Alta</mat-option>
+        <mat-option [value]="3">Crítica</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit">
+      {{ isEditMode ? 'Actualizar' : 'Crear' }} Ticket
+    </button>
+  </form>
+  
