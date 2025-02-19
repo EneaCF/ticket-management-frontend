@@ -1,18 +1,11 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
+import { TicketsModule } from './modules/tickets/components/tickets/tickets.module';
 
-const routes: Routes = [
-  // Lazy load del módulo de tickets
-  { 
-    path: 'tickets', 
-    loadChildren: () => import('./modules/tickets/tickets-routing.module').then(m => m.TicketsRoutingModule)
-  },
-  { path: '', redirectTo: 'tickets', pathMatch: 'full' },
+export const routes: Routes = [
+  // Ejemplo:
+  { path: 'tickets', loadChildren: () => import('./modules/tickets/components/tickets/tickets.module').then(m => m.TicketsModule) },
   { path: '**', redirectTo: 'tickets' }
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+//Exporta routes para que puedan ser importadas en app.module.ts
+export default routes;

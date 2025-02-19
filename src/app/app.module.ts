@@ -1,24 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
- // Asegura que este módulo importa RouterModule.forRoot(...)
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
-// Declaración del componente global (Navbar)
+import { AppComponent } from './app.component';
 import { NavbarComponent } from './core/components/navbar/navbar.component';
-import { AppRoutingModule } from './app.routes';
+
+// Importar módulos de Angular Material
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent // Asegúrate de declararlo aquí
+    NavbarComponent  // Declarado aquí, no en imports
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,  // Este módulo debe haber importado RouterModule.forRoot(routes)
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([]), // Configura las rutas aquí o en un AppRoutingModule
+    MatToolbarModule,        // Para <mat-toolbar>
+    MatButtonModule          // Para <button mat-button>
   ],
   providers: [],
   bootstrap: [AppComponent]
